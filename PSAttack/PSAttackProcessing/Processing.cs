@@ -20,7 +20,6 @@ namespace PSAttack.PSAttackProcessing
             {
                 if (attackState.cmd == "exit")
                 {
-                    Console.WriteLine("[i] Running Exit..");
                     System.Environment.Exit(0);
                 }
                 else

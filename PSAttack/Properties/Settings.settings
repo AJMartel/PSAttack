@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="encryptionKey" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">FquBNlbhO9QBgA5EEHwBi8KPiPBHdDilOkP2Z1EcU3Ap5d5mrQYdY6KYnsldU6tU</Value>
+      <Value Profile="(Default)">XAutD4lyJBNO5LilgQ41wOC8L15r3HIQjAb5SN75YqIrm3GhDX5N56LNMNArhgJs</Value>
     </Setting>
     <Setting Name="valueStore" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">WbROXZXUpWuOJUIjHwtmbyxIwJXAWfpHNtyZFdPCIsurnSjiFYZNFbaYeJRNCXyK</Value>
+      <Value Profile="(Default)">HTqIgYm</Value>
     </Setting>
   </Settings>
 </SettingsFile>

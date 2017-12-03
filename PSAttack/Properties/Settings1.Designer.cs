@@ -25,7 +25,7 @@ namespace PSAttack.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FquBNlbhO9QBgA5EEHwBi8KPiPBHdDilOkP2Z1EcU3Ap5d5mrQYdY6KYnsldU6tU")]
+        [global::System.Configuration.DefaultSettingValueAttribute("XAutD4lyJBNO5LilgQ41wOC8L15r3HIQjAb5SN75YqIrm3GhDX5N56LNMNArhgJs")]
         public string encryptionKey {
             get {
                 return ((string)(this["encryptionKey"]));
@@ -34,7 +34,7 @@ namespace PSAttack.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("WbROXZXUpWuOJUIjHwtmbyxIwJXAWfpHNtyZFdPCIsurnSjiFYZNFbaYeJRNCXyK")]
+        [global::System.Configuration.DefaultSettingValueAttribute("HTqIgYm")]
         public string valueStore {
             get {
                 return ((string)(this["valueStore"]));

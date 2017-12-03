@@ -47,16 +47,16 @@ namespace PSAttack
                 }
             }
 
-            // Kill PowerShell Logging
-            try
-            {
-                attackState.cmd = attackState.decryptedStore["etwBypass"];
-                Processing.PSExec(attackState);
-            }
-            catch
-            {
-                Console.WriteLine("Disabling ETW failed.");
-            }
+            // Kill PowerShell Logging :)
+            //try
+            //{
+            //    attackState.cmd = attackState.decryptedStore["etwBypass"];
+            //    Processing.PSExec(attackState);
+            //}
+            //catch
+            //{
+            //    Console.WriteLine("Disabling ETW failed.");
+            //}
 
             // amsi bypass (thanks matt!!)
             if (Environment.OSVersion.Version.Major > 9)

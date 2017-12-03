@@ -96,12 +96,17 @@ namespace PSAttack
                 }
             }
             
-            // Setup Console
-            Console.Title = Strings.windowTitle;
+            
             //Console.BufferHeight = Int16.MaxValue - 10;
-            Console.BackgroundColor = PSColors.background;
-            //Console.TreatControlCAsInput = true;
-            //Console.Clear();
+            
+            if (attackState.console == true)
+            {
+                // Setup Console
+                Console.Title = Strings.windowTitle;
+                Console.BackgroundColor = PSColors.background;
+                //Console.TreatControlCAsInput = true;
+                Console.Clear();
+            }   
 
             // get build info
             string buildString;

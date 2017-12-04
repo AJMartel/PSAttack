@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Configuration;
 using System.Security.Principal;
 using System.Reflection;
-using System.Management.Automation.Runspaces;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using PSAttack.PSAttackProcessing;
 using PSAttack.Utils;
 using PSAttack.PSAttackShell;
@@ -24,12 +24,15 @@ namespace PSAttack
 
             // create attackState
             AttackState attackState = new AttackState();
+
+            // Check if we're in a console
             attackState.cursorPos = attackState.promptLength;
 
 
             // Get Encrypted Values
             Assembly assembly = Assembly.GetExecutingAssembly();
-            Stream valueStream = assembly.GetManifestResourceStream("PSAttack.Resources." + Properties.Settings.Default.valueStore);
+            String valueStoreString = Properties.Settings.Default.valueStore;
+            Stream valueStream = assembly.GetManifestResourceStream("PSAttack.Resources." + valueStoreString);
             MemoryStream valueStore = CryptoUtils.DecryptFile(valueStream);
             string valueStoreStr = Encoding.Unicode.GetString(valueStore.ToArray());
 
@@ -43,6 +46,17 @@ namespace PSAttack
                     attackState.decryptedStore.Add(entry[0], entry[1]);
                 }
             }
+
+            // Kill PowerShell Logging :)
+            //try
+            //{
+            //    attackState.cmd = attackState.decryptedStore["etwBypass"];
+            //    Processing.PSExec(attackState);
+            //}
+            //catch
+            //{
+            //    Console.WriteLine("Disabling ETW failed.");
+            //}
 
             // amsi bypass (thanks matt!!)
             if (Environment.OSVersion.Version.Major > 9)
@@ -93,12 +107,17 @@ namespace PSAttack
                 }
             }
             
-            // Setup Console
-            Console.Title = Strings.windowTitle;
-            Console.BufferHeight = Int16.MaxValue - 10;
-            Console.BackgroundColor = PSColors.background;
-            Console.TreatControlCAsInput = true;
-            Console.Clear();
+            
+            //Console.BufferHeight = Int16.MaxValue - 10;
+            
+            if (attackState.console == true)
+            {
+                // Setup Console
+                Console.Title = Strings.windowTitle;
+                Console.BackgroundColor = PSColors.background;
+                //Console.TreatControlCAsInput = true;
+                Console.Clear();
+            }   
 
             // get build info
             string buildString;
@@ -167,9 +186,19 @@ namespace PSAttack
                 AttackState attackState = PSInit();
                 while (true)
                 {
-                    attackState.keyInfo = Console.ReadKey();
+                    if (attackState.console)
+                    {
+                        attackState.keyInfo = Console.ReadKey();
+                    }
+                    else
+                    {
+                        attackState.cmd = Console.ReadLine();
+                    }
                     attackState = Processing.CommandProcessor(attackState);
-                    Display.Output(attackState);
+                    if (attackState.console)
+                    {
+                        Display.Output(attackState);
+                    }
                 }
             }
         }

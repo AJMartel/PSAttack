@@ -80,6 +80,10 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,10 +95,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <Compile Include="Properties\Settings1.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="PSAttackProcessing\TabExpansion.cs" />
     <Compile Include="PSAttackShell\PSColors.cs" />
@@ -103,7 +107,6 @@
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="PSAttackProcessing\Processing.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSAttackShell\PSParameter.cs" />
     <Compile Include="PSAttackShell\PSParamType.cs" />
     <Compile Include="PSAttackShell\PSAttackHost.cs" />
@@ -113,32 +116,48 @@
     <Compile Include="Utils\PSAUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <EmbeddedResource Include="Modules\+LWhfHZFVQmlIlxLq8T2ug==" />
-    <EmbeddedResource Include="Modules\0cgtplL99zrnPSESNEEkIoir_85_J1UM_iCSLsMxSwaPJpiVkHPr64POrprboDM_" />
-    <EmbeddedResource Include="Modules\3mA_plYWQFhw2zLVVe+1FA==" />
-    <EmbeddedResource Include="Modules\6+lNVaSq20XmNjGkuxdAqw8DTZ18gD1rdpUcyC8YwEx3+6fF48Fnqi2uvGtwl0tz" />
-    <EmbeddedResource Include="Modules\GD2jgciIKmvJdQfzqIuEf0eogQJYXfUO1eIml4DcHwMrB3gQfucWFzRpQoqJbIYT" />
-    <EmbeddedResource Include="Modules\GnY7KxmRvP9GRf_CGMCEzXJ2lR+x9ydOFcusDP0LANw=" />
-    <EmbeddedResource Include="Modules\gzhq_wDLFVYKC8PBxfPbSH4VWfzZgXI2heZ1BmTdpVQ=" />
-    <EmbeddedResource Include="Modules\Kg6BAK7FhabU8uSKfzdAMuMG+Q1H3utqXFR+9h24Ncg=" />
-    <EmbeddedResource Include="Modules\lcrseqbJdgqrw2lM6ppaav6YY3DHuq1Wee37vPPgnNnDJix9MDFmrmUDfU+V5wdM" />
-    <EmbeddedResource Include="Modules\lWxE3VtA+TLHgs56vjv9e6azAxIAMxCCjbjq3bYfQcs=" />
-    <EmbeddedResource Include="Modules\N+jD2IBV3Pat0_mbE+l3VBtRtf3mnKFgztF68fm3wDk=" />
-    <EmbeddedResource Include="Modules\nKkWzst4r7rvZvTISCdiMf927S4vEJ0B919NtQNOTg4=" />
-    <EmbeddedResource Include="Modules\P13HB1p_4K04ja190mDq0AaxrBbOjbXKJIEAaPhPzWY=" />
-    <EmbeddedResource Include="Modules\r9sV+VF8shS1map+_pTqPg==" />
-    <EmbeddedResource Include="Modules\sfN1sF_kzOQ1abZcDF0mg1fbOD1uBZ1OOuGctv0KxOU=" />
-    <EmbeddedResource Include="Modules\Tvdcpgw7baQOaJaKrjrUbZKtiWH0R6usGNeWu_cYwJI=" />
-    <EmbeddedResource Include="Modules\Wxc4ikFQU3E0rlcwHXQJqGnprGZwjkJ3YeNs+VTKS2s=" />
-    <EmbeddedResource Include="Modules\Wxc4ikFQU3E0rlcwHXQJqGv8LrBKG3yZp_tqciMKwQrsDesxJj16xZcQ9+9Eys+6" />
-    <EmbeddedResource Include="Modules\Wxc4ikFQU3E0rlcwHXQJqH8IMDXPrMXriCEoV+IlorgEelwmHErdyHb1RmLXrAilK3fNGNLax2ufb2qJ1XW9ZQ==" />
-    <EmbeddedResource Include="Modules\Wxc4ikFQU3E0rlcwHXQJqOomglX9mY7ot_n60WDIy6Q=" />
-    <EmbeddedResource Include="Modules\xSQCK0WKT_NBJFb8F9t95ygaLj0m47rOdTucqrTvREE=" />
-    <EmbeddedResource Include="Modules\XZaQ1L30p2JCMvgonlQHdhMI_Gpw0PXohjg6rcxyd70Ue_2TfTG3ngUVU_tJOIE8" />
-    <EmbeddedResource Include="Modules\ymH31aJl15zuv+zjNFAHZ0BqPGx_ewBhbR9GeH6uMnAouH5j+Bxh6LIzi3_hcmrM" />
-    <EmbeddedResource Include="Modules\yZGzoxaXDlv85ey6oTnqe3HIZnEC1GdnlHnFioNx8s4=" />
-    <EmbeddedResource Include="Resources\FvUlcAlwXoarMigdJSYGltVyhoXZWufstEmQQkxwHNJqkHxrDAOWlECLaVEncLZd" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest" />
+    <EmbeddedResource Include="Modules\2EWmE8CFFk7PN2moGPyLDTnsGugtCsOfyzY4mHinoYJXSb1cEM3rvONFxWzIuQ3HaaxLuKQFN7NI+nrPiYj+4w==" />
+    <EmbeddedResource Include="Modules\2EWmE8CFFk7PN2moGPyLDYJOYyN5atSCb_2DDJKo28gTguLp3LkpVUJic7lV3rMjN2NqNTVxTQnnBdK+xWjGrvtp0_5NL8F9d5FSd0qnzyOlfQzjBIXQtkvoHZLTl0N3" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxbK115xwlLaXlUuY8HBkWRW0i6t4xNuomE4yUUMoMIiaayEzzUfBecmcFz80VsN95lutJ9xPGORTIm2LoIKuodk=" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxRd2Rov2h5fm40n8qTZr48+9UzqwJwSCp2wGi3SC9Zsgn24LrgM3wbbqEuXXKBn6Qg==" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxRd2Rov2h5fm40n8qTZr488P8h0__YWsFnYDDwmOTNweJsU7OApu4dAaCF0T_iDw+cch4gtwIFllje2nNDwSe7U=" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxRd2Rov2h5fm40n8qTZr489aTlJjteRkAwCKsGZUVyd+m9EHPeJJ817AoNHP1ZSC8g==" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxRd2Rov2h5fm40n8qTZr48_AKwAKmlmsJlf8FbZU4kQcLa_3EcTvTXUKPiX29vtFlw==" />
+    <EmbeddedResource Include="Modules\AFbwtWpx_8_U8fHlLbqgxRd2Rov2h5fm40n8qTZr48_Kar9oLKrvhHWMrV4dUu5d7CQT6zVkf8b_Nsuup4I0JA==" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_aBNvmGHRPpkmoDowXk2zXzyDnQ4i0T9PbuqwLP3pMHzDMnlBpACidKnN39MvEM43Q==" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_aBNvmGHRPpkmoDowXk2zXzyDnQ4i0T9PbuqwLP3pMHzPelQ33+oK9Fkxiq+RwRl5g==" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_cSqShw9LASU9KS3odOgeDMvyaH3Rw9s+a1p1nQpQNsh0sdEHVcXiVCtneP5hDoV6k5_lkx3y1IMrtCU4JtJUso=" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_cSqShw9LASU9KS3odOgeDMvyaH3Rw9s+a1p1nQpQNshf8e22whHEBiju0immwt2sw==" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_cSqShw9LASU9KS3odOgeDMvyaH3Rw9s+a1p1nQpQNshotm3vHlpMYDtPJDQINrRsg==" />
+    <EmbeddedResource Include="Modules\b9rbospNqczuyGBmAMLs_cSqShw9LASU9KS3odOgeDNFaAQmYeRrBoEUwRnUfq5c" />
+    <EmbeddedResource Include="Modules\jDdfxUeyaPVA6bIRIrdAOj8Gju94If_1y6TbsPn8IRfltusGQr6tEpCnH_nZk8g6KjBcdBfp3DAlhtLYXw1E1g==" />
+    <EmbeddedResource Include="Modules\L8o7Edys7dOcFs1Q1W+NI+KoiLLOvavf9SrEVCM5cK4sJSqIS3YjiKnI2CU_rYb0yOzYtqAQT2YXl4PCU0vG_f8Y2I3p4UQcHOVUTBucSJU=" />
+    <EmbeddedResource Include="Modules\L8o7Edys7dOcFs1Q1W+NI7KtMUf0YSxNqqYlQwUFZYMwI+Bbw4rofxoJpTIrgvUqJ_qGyu9JZoGBzyxMBL2TfgG8TvS91uHqE9nA0XO20WY=" />
+    <EmbeddedResource Include="Modules\L8o7Edys7dOcFs1Q1W+NI7KtMUf0YSxNqqYlQwUFZYMy9+0lUszCe3c_V+Owpl5oo9601ebIACazbBNKIA1GFayrIzsPCKV9DV5y_gXTC98=" />
+    <EmbeddedResource Include="Modules\lQRnyDgf0wKtJPy_jEG3E59o139XS9wljSTW_piytNbJGgKkDFQaW693cLw6Gzfl" />
+    <EmbeddedResource Include="Modules\lQRnyDgf0wKtJPy_jEG3E59o139XS9wljSTW_piytNbNQeJgBwEg+fa+PXul_L4v" />
+    <EmbeddedResource Include="Modules\ReabsCCRg3VKtKsEBVt97rHs1gzU_w88NfzfMnZtQZYnarM9ubdSg40ajMT31yT8" />
+    <EmbeddedResource Include="Modules\sW_l73OfZwmwrr0EAca0j7vL7T85c7n2ajSkUgawm8AGhFQW6wgQC6alLnx6Em5q" />
+    <EmbeddedResource Include="Modules\sYmYXeeWjlNpRO19ovUvq8ma6DTObe_MAfVFR2vk+XOn7ZXgrYlb2BVJJxb7J5CD" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA6+g7Az3+XFpfyWGxo5kJDQMXuWLDWsUXjtAwJ9WnIMdd" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA6+U1WcPnQYmPABrNU3i26NoGUaBsGWp+2lcLnekH4KEijdXwdXUprEMadCLy61i3uQ==" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA62Vu7c_IYME64PmBBZUEheiS0rh5eDIOixZCvCpEsUEXyo7poAU6X6eNw6+tQljBoA==" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA63zkwurin4uDW7bjWkf_2NJA5uY14JQyt8ybySUNMRvn" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA6441RG0OZQPYCVWv2cclpKtymRVDCmyEkYD18ld9gTLoqV9gkD4DAkB7bqxZ30F+1A==" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA644yfG954_Rmwl3gnjlakJFD_dgE7tp3dZ8q0ZA5bN3TTx_vsGxB61DEoF5Mw74R_A==" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA65s1I_ZGoKHnCIkoxGEhJi8vUG9jVbCqpk2n0gY1MO1l" />
+    <EmbeddedResource Include="Modules\XOydy2vPa9ljkCvvqSsA686rIgL3iqqvMMIsQ1HaaXLLEHRMUq6hTo3VWiVyDuXxDsz4TyYfnRjgNrKSvCWa0g==" />
+    <EmbeddedResource Include="Modules\yNqgqg20eyKvz4Q+G0gpJT3h0rCiYC8fRgHAp5K8fAfLP7+HGMscqBL1QJH1cedBnaScAxg+4ak+xduDU4JAXzJDy5thAjW4yi4wAdxPTvs=" />
+    <EmbeddedResource Include="Modules\yZAOHhB1GXNijuPv1xgx8wa_FxlcsWtufbMd8vd4fQD5cxFuZ7dU8MenMLkdZ5fMKHCjf5WuuX0Jc2ESWOe5bA==" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources\RcpqpSIUuxJUEfJLOIjCZ" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\attackDate.txt" />
@@ -146,9 +165,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\BuildDate.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>powershell -command "get-date -F G" &gt; "$(ProjectDir)\Resources\BuildDate.txt"</PreBuildEvent>
+    <PreBuildEvent>echo %25date%25 %25time%25 &gt; "$(ProjectDir)Resources\BuildDate.txt"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

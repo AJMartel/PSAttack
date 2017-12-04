@@ -66,6 +66,21 @@ namespace PSAttack.PSAttackProcessing
 
         public int promptLength { get; set; }
 
+        // are we running in a console?
+        public bool console
+        {
+            get
+            {
+                try {
+                    int window_height = Console.WindowHeight;
+                }
+                catch {
+                    return false;
+                }
+                return true;
+            }
+        }
+
         // When PSAttack is built an encrypted CSV is generated containing data that we 
         // don't want to touch disk. That data is stored here as a dict 
         public Dictionary<string,string> decryptedStore { get; set; }

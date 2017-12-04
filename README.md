@@ -8,7 +8,7 @@ PS>Attack combines some of the best projects in the infosec powershell community
 1. It features powerful tab-completion covering commands, parameters and file paths.
 2. A custom command "get-attack" is included that helps you find the attack that you're looking for.
 3. It doesn't rely on powershell.exe. Instead it calls powershell directly through the .NET framework. This makes it harder for enterprieses to block.
-4. The modules that are bundled with the exe are encrypted. When PS>Attack starts, they are decrypted into memory. The unencrypted payloads never touch disk, making it difficult for most antivirus engines to catch them.
+4. The modules that are bundled with the exe are obfuscated with @danielbohannon's [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation) and then encrypted. When PS>Attack starts, they are decrypted into memory. The plaintext payloads never touch disk, making it difficult for most antivirus engines to catch them.
 
 PS>Attack contains over 100 commands for Privilege Escalation, Recon and Data Exfilitration. It does this by including the following modules and commands:
 

@@ -56,3 +56,5 @@ If you have any questions or suggestions for PS>Attack, feel free to submit an i
 PS>Attack was inspired by and benefits from a lot of incredible people in the PowerShell community. Particularly [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. Besides writing the modules and commands that give PS>Attack it's punch, their various projects have inspired a lot of my approach to this project as well as my decision to try and contribute something back to the community.
 
 A huge thank you to [Ben0xA](https://twitter.com/ben0xa), who's [PoshSecFramework](https://github.com/PoshSec/PoshSecFramework) was used to figure out a lot of things about how to build a powershell console.
+
+Thanks to [danielbohannon](https://twitter.com/danielbohannon) for writing the masterpiece that is [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation). I'm glad someone is crazy enough to do the research in obfuscating PowerShell.

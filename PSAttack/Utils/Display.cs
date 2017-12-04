@@ -14,6 +14,15 @@ namespace PSAttack.Utils
         public static string createPrompt(AttackState attackState)
         {
             string prompt = attackState.runspace.SessionStateProxy.Path.CurrentLocation + " #> ";
+            if (attackState.console)
+            {
+                if (prompt.Length >= (Console.WindowWidth - 20))
+                {
+                    int offset = prompt.Length - (Console.WindowWidth - 20);
+                    prompt = prompt.Remove(0, offset);
+                    prompt = "..." + prompt;
+                }
+            }
             attackState.promptLength = prompt.Length;
             return prompt;
         }
@@ -24,31 +33,32 @@ namespace PSAttack.Utils
             {
                 printPrompt(attackState);
             }
-            int currentCusorPos = Console.CursorTop;
-            string prompt = createPrompt(attackState);
-
-            // This is where we juggle things to make sure the cursor ends up where 
-            // it's expected to be. I'm sure this could be improved on.
-
-            // Clear out typed text after prompt
-            Console.SetCursorPosition(prompt.Length, attackState.promptPos);
-            Console.Write(new string(' ', Console.WindowWidth));
-
-            // Clear out any lines below the prompt
-            int cursorDiff = attackState.consoleWrapCount();
-            while (cursorDiff > 0)
+            if (attackState.console)
             {
-                Console.SetCursorPosition(0, attackState.promptPos + cursorDiff);
+                int currentCusorPos = Console.CursorTop;
+                string prompt = createPrompt(attackState);
+
+                // This is where we juggle things to make sure the cursor ends up where 
+                // it's expected to be. I'm sure this could be improved on.
+
+                // Clear out typed text after prompt
+                Console.SetCursorPosition(prompt.Length, attackState.promptPos);
                 Console.Write(new string(' ', Console.WindowWidth));
-                cursorDiff -= 1;
+
+                // Clear out any lines below the prompt
+                int cursorDiff = attackState.consoleWrapCount();
+                while (cursorDiff > 0)
+                {
+                    Console.SetCursorPosition(0, attackState.promptPos + cursorDiff);
+                    Console.Write(new string(' ', Console.WindowWidth));
+                    cursorDiff -= 1;
+                }
+                Console.SetCursorPosition(prompt.Length, attackState.promptPos);
+                // Re-print the command
+                Console.Write(attackState.displayCmd);
+                List<int> cursorXY = attackState.getCursorXY();
+                Console.SetCursorPosition(cursorXY[0], cursorXY[1]);
             }
-            Console.SetCursorPosition(prompt.Length, attackState.promptPos);
-
-            // Re-print the command
-            Console.Write(attackState.displayCmd);
-
-            List<int> cursorXY = attackState.getCursorXY();
-            Console.SetCursorPosition(cursorXY[0], cursorXY[1]);
         }
 
         public static void Exception(AttackState attackState, string errorMsg)
@@ -59,7 +69,10 @@ namespace PSAttack.Utils
 
         public static void printPrompt(AttackState attackState)
         {
-            attackState.promptPos = Console.CursorTop;
+            if (attackState.console)
+            {
+                attackState.promptPos = Console.CursorTop;
+            }
             string prompt = createPrompt(attackState);
             Console.ForegroundColor = PSColors.prompt;
             Console.Write(prompt);
